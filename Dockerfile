@@ -1,7 +1,6 @@
  # Create app directory
 FROM libaozhong/node_pm2
 RUN mkdir -p /var/node2/docker_node
-RUN npm update -g
 RUN npm install -g n
 RUN n v8.11.0 
  # Bundle app source
