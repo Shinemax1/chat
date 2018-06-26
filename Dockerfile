@@ -1,15 +1,12 @@
  # Create app directory
-FROM chug/ubuntu14.04x64
-RUN apt-get update
-RUN apt-get indtall vim
-RUN apt-get indtall git
-RUN apt-get indtall pm2
-RUN apt-get indtall node
-RUN mkdir -p /home/Service
+FROM libaozhong/node_pm2
+RUN mkdir -p /var/node2/docker_node
  # Bundle app source
-WORKDIR /home/Service   
-COPY . /home/Service
+WORKDIR /var/node2/docker_node   
+COPY . /var/node2/docker_node
 EXPOSE 8888
+CMD npm --registry https://registry.npm.taobao.org install && npm run build && pm2 start --no-daemon ./build/server/static/js/server.js  
+
 # CMD npm start   
  ## 如果想运行多条指令可以这样：
 ## CMD git pull && npm install && npm start
