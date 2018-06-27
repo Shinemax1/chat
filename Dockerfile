@@ -1,5 +1,5 @@
  # Create app directory
-FROM shinemax/npm2
+FROM node
 RUN mkdir -p /var/node2/docker_node
 # RUN npm --registry https://registry.npm.taobao.org update -g
 # RUN npm install -g n
@@ -7,10 +7,10 @@ RUN mkdir -p /var/node2/docker_node
 COPY . /var/node2/docker_node
  # Bundle app source
 WORKDIR /var/node2/docker_node 
-RUN npm install --production
-ENV NODE_ENV production
+RUN npm install pm2 -g
+# ENV NODE_ENV production
 EXPOSE 8888
-CMD npm run build && pm2 start --no-daemon ./build/server/static/js/server.js  
+CMD npm --registry https://registry.npm.taobao.org install && npm run build && pm2 start --no-daemon ./build/server/static/js/server.js  
 # CMD echo "pwd: "`pwd`
 # CMD npm start   
  ## 如果想运行多条指令可以这样：
