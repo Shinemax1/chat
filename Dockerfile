@@ -4,12 +4,13 @@ RUN mkdir -p /var/node2/docker_node
 # RUN npm --registry https://registry.npm.taobao.org update -g
 # RUN npm install -g n
 # RUN n v8.11.0 
- # Bundle app source
-WORKDIR /var/node2/docker_node   
 COPY . /var/node2/docker_node
+ # Bundle app source
+WORKDIR /var/node2/docker_node 
+RUN npm install --registry = https://registry.npm.taobao.org 
 ENV NODE_ENV production
 EXPOSE 8888
-CMD npm install --registry = https://registry.npm.taobao.org && npm run build && pm2 start --no-daemon ./build/server/static/js/server.js  
+CMD npm run build && pm2 start --no-daemon ./build/server/static/js/server.js  
 # CMD echo "pwd: "`pwd`
 # CMD npm start   
  ## 如果想运行多条指令可以这样：
