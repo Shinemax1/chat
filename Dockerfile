@@ -4,7 +4,7 @@ RUN mkdir -p /var/node2/docker_node
 # RUN npm --registry https://registry.npm.taobao.org update -g
 # RUN npm install -g n
 # RUN n v8.11.0 
-COPY /var/node/docker_node /var/node2/docker_node
+COPY . /var/node2/docker_node
  # Bundle app source
 WORKDIR /var/node2/docker_node 
 RUN npm install --production
