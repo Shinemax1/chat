@@ -1,6 +1,7 @@
  # Create app directory
 FROM libaozhong/node_pm2
 RUN mkdir -p /var/node2/docker_node
+RUN npm  --registry https://registry.npm.taobao.org update -g
 RUN npm --registry https://registry.npm.taobao.org install -g n
 RUN n v8.11.0 
  # Bundle app source
