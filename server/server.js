@@ -113,7 +113,6 @@ app.use(function(req,res,next){
       <meta name="theme-color" content="#000000">
       <meta name="description" content="${obj[req.url]}"/>
       <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-      <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
       <link rel="stylesheet" href="/${staticPath['main.css']}">
       <title>React App</title>
     </head>
