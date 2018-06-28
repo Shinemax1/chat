@@ -1,6 +1,7 @@
 import axios from 'axios'
 import io from 'socket.io-client'
 const socket = io('ws://116.62.66.219:8880')
+// const socket = io('ws://docker.webman.vip')
 // const socket = io('ws://localhost:8088')
 // 获取聊天列表
 const MSG_LIST = 'MSG_LIST'

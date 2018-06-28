@@ -8,10 +8,10 @@ COPY . .
  # Bundle app source
 WORKDIR . 
 # RUN echo "pwdrun: "`pwd`
-RUN npm --registry https://registry.npm.taobao.org  install --production
+# RUN npm --registry https://registry.npm.taobao.org  install --production
 ENV NODE_ENV production
 EXPOSE 8888
-CMD npm run build && pm2 start --no-daemon ./build/server/static/js/server.js  
+CMD npm --registry https://registry.npm.taobao.org  install && npm run build && pm2 start --no-daemon ./build/server/static/js/server.js  
 # CMD echo "pwd: "`pwd`
 # CMD npm start   
  ## 如果想运行多条指令可以这样：
