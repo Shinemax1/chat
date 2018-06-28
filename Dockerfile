@@ -1,12 +1,12 @@
  # Create app directory
-FROM node
+FROM shinemax/npm2
 RUN mkdir -p /var/node2/docker_node
 # RUN npm --registry https://registry.npm.taobao.org update -g
 # RUN npm install -g n
 # RUN n v8.11.0 
-COPY . /var/node2/docker_node
+COPY . .
  # Bundle app source
-WORKDIR /var/node2/docker_node 
+WORKDIR . 
 RUN echo "pwdrun: "`pwd`
 # RUN npm install pm2 -g
 # ENV NODE_ENV production
